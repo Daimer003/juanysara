@@ -33,7 +33,7 @@
           Juan & Sara
         </h2>
         <p
-          class="text-white text-center font-cormorant italic text-lg max-w-[500px] px-4 mb-0"
+          class="text-white text-center font-cormorant italic text-md max-w-[500px] px-4 mb-0"
         >
           Por eso dejará el hombre a su padre y a su madre, y se unirá a su
           mujer, y serán una sola carne. <br />
