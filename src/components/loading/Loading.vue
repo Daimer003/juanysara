@@ -32,11 +32,11 @@
           class="absolute bottom-0 w-full h-1/3 flex flex-col justify-center items-center
                  bg-gradient-to-t from-black/90 via-black/100 to-transparent"
         >
-          <h2 class="text-white text-4xl font-semibold tracking-wide cormorant-garamond">
+          <h2 class="text-white text-4xl font-semibold tracking-wide cormorant-garamond mb-2">
             Juan & Sara
           </h2>
           <p
-            class="text-white text-center font-cormorant italic text-lg max-w-[500px] px-4 mb-4"
+            class="text-white text-center font-cormorant italic text-md max-w-[500px] px-4 mb-4"
           >
             Por eso dejará el hombre a su padre y a su madre, y se unirá a su
             mujer, y serán una sola carne. <br />
