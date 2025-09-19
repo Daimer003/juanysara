@@ -61,8 +61,8 @@
           </button>
         </div>
 
-        <!-- Audio -->
-        <audio id="bg-music" loop>
+        <!-- Audio del loader -->
+        <audio id="bg-music-1" loop>
           <source
             src="https://res.cloudinary.com/diccp2984/video/upload/v1758311134/audio-1_jxocvi.mp3"
             type="audio/mpeg"
@@ -72,15 +72,18 @@
       </div>
     </transition>
 
+    <!-- Audio de la invitación fuera del loader -->
+    <audio id="bg-music-2" loop></audio>
+
     <!-- Página de invitación -->
     <transition name="fade">
-      <Invitation v-if="!showLoader" :startMusic="playInvitationMusic" />
+      <Invitation v-if="!showLoader" />
     </transition>
   </div>
 </template>
 
 <script setup>
-import { ref, nextTick } from "vue"
+import { ref } from "vue"
 import Invitation from "../views/Invitation.vue"
 
 const showLoader = ref(true)
@@ -88,41 +91,49 @@ const countdown = ref(20) // segundos
 const isCounting = ref(false)
 
 let interval = null
-let audio = null
+let audio1 = null
+let audio2 = null
 
-const startInvitation = () => {
-  audio = document.getElementById("bg-music")
-  if (audio) {
-    audio.volume = 1
-    // primer play por interacción del usuario
-    audio.play().catch((err) => console.warn("Autoplay bloqueado:", err))
+const startInvitation = async () => {
+  audio1 = document.getElementById("bg-music-1")
+  audio2 = document.getElementById("bg-music-2")
+
+  // asignamos la fuente de audio 2
+  audio2.src = "https://res.cloudinary.com/diccp2984/video/upload/v1758315071/audio-2_wfumoa.mp3"
+
+  if (audio1) {
+    audio1.volume = 1
+    await audio1.play().catch((err) => console.warn("Autoplay bloqueado:", err))
   }
 
   isCounting.value = true
 
-  interval = setInterval(() => {
+  interval = setInterval(async () => {
     countdown.value--
 
-    // Fade out en los últimos 3 segundos
-    if (countdown.value <= 3 && audio) {
-      const newVolume = Math.max(0, audio.volume - 0.33)
-      audio.volume = newVolume
+    // Fade out de la primera canción en los últimos 3 segundos
+    if (countdown.value <= 3 && audio1) {
+      audio1.volume = Math.max(0, audio1.volume - 0.33)
     }
 
     if (countdown.value === 0) {
       clearInterval(interval)
-      showLoader.value = false
 
-      // Esperamos a que Invitation monte y volvemos a reproducir
-      nextTick(() => {
-        if (audio) {
-          audio.currentTime = 0
-          audio.volume = 1
-          audio.play().catch((err) =>
-            console.warn("Reproducción bloqueada:", err)
-          )
-        }
-      })
+      // Detenemos primera canción
+      if (audio1) {
+        audio1.pause()
+        audio1.currentTime = 0
+      }
+
+      // Arrancamos segunda canción sin límite de tiempo
+      if (audio2) {
+        audio2.volume = 0.7
+        audio2.loop = true
+        await audio2.play().catch((err) => console.warn("Reproducción bloqueada:", err))
+      }
+
+      // Mostramos la invitación
+      showLoader.value = false
     }
   }, 1000)
 }

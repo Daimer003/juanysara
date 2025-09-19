@@ -13,35 +13,9 @@
       📅 14 de Diciembre, 2025
     </p>
 
-    <!-- Audio de la invitación -->
-    <audio id="invitation-music" loop>
-      <source
-        src="https://res.cloudinary.com/diccp2984/video/upload/v1758315071/audio-2_wfumoa.mp3"
-        type="audio/mpeg"
-      />
-      Tu navegador no soporta audio HTML5.
-    </audio>
   </div>
 </template>
 
 <script setup>
-import { watch } from "vue"
 
-const props = defineProps({
-  startMusic: { type: Boolean, default: false }
-})
-
-watch(
-  () => props.startMusic,
-  (newVal) => {
-    if (newVal) {
-      const audio = document.getElementById("invitation-music")
-      if (audio) {
-        audio.volume = 0.7
-        audio.play().catch((err) => console.warn("Autoplay bloqueado:", err))
-      }
-    }
-  },
-  { immediate: true }
-)
 </script>
