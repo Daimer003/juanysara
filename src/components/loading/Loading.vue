@@ -32,7 +32,9 @@
           class="absolute bottom-0 w-full h-1/3 flex flex-col justify-center items-center
                  bg-gradient-to-t from-black/90 via-black/100 to-transparent"
         >
-          <h2 class="text-white text-4xl font-semibold tracking-wide cormorant-garamond mb-2">
+          <h2
+            class="text-white text-4xl font-semibold tracking-wide cormorant-garamond mb-2"
+          >
             Juan & Sara
           </h2>
           <p
@@ -51,7 +53,11 @@
                    border border-white/40 backdrop-blur-sm 
                    hover:bg-white/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {{ isCounting ? `Cargando invitación... (${countdown})` : "Ver la invitación" }}
+            {{
+              isCounting
+                ? `Cargando invitación... (${countdown})`
+                : "Ver la invitación"
+            }}
           </button>
         </div>
 
@@ -68,41 +74,55 @@
 
     <!-- Página de invitación -->
     <transition name="fade">
- <Invitation v-if="!showLoader" />
+      <Invitation v-if="!showLoader" />
     </transition>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, nextTick } from "vue"
 import Invitation from "../views/Invitation.vue"
 
 const showLoader = ref(true)
 const countdown = ref(20) // segundos
 const isCounting = ref(false)
 
+let interval = null
+let audio = null
+
 const startInvitation = () => {
-  const audio = document.getElementById("bg-music")
+  audio = document.getElementById("bg-music")
   if (audio) {
-    audio.volume = 1 // inicio con volumen normal
+    audio.volume = 1
+    // primer play por interacción del usuario
     audio.play().catch((err) => console.warn("Autoplay bloqueado:", err))
   }
 
   isCounting.value = true
 
-  const interval = setInterval(() => {
+  interval = setInterval(() => {
     countdown.value--
 
-    // En los últimos 3 segundos bajamos gradualmente el volumen
+    // Fade out en los últimos 3 segundos
     if (countdown.value <= 3 && audio) {
-      const newVolume = Math.max(0, audio.volume - 0.33) // baja en 3 pasos
+      const newVolume = Math.max(0, audio.volume - 0.33)
       audio.volume = newVolume
     }
 
     if (countdown.value === 0) {
       clearInterval(interval)
       showLoader.value = false
-      if (audio) audio.pause() // detenemos el audio al terminar la transición
+
+      // Esperamos a que Invitation monte y volvemos a reproducir
+      nextTick(() => {
+        if (audio) {
+          audio.currentTime = 0
+          audio.volume = 1
+          audio.play().catch((err) =>
+            console.warn("Reproducción bloqueada:", err)
+          )
+        }
+      })
     }
   }, 1000)
 }
@@ -113,6 +133,7 @@ const startInvitation = () => {
 .fade-leave-active {
   transition: opacity 1s;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
