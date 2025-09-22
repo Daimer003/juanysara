@@ -13,10 +13,14 @@
     </div>
 
     <Information />
+    <Club />
+
+
   </div>
 </template>
 
 <script setup>
+import Club from '../club/Club.vue';
 import Information from '../information/Information.vue';
 
 // No necesitas lógica por ahora, es puramente UI

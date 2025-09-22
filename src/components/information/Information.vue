@@ -2,14 +2,14 @@
   <div class="flex justify-center bg-[#fdf6f1]">
     <div class="w-full max-w-[800px] text-center p-12">
       <!-- Nombres -->
-      <div class="mb-6">
+      <div class="mb-2">
         <h1 class="font-script text-8xl text-gray-800">Juan</h1>
         <p class="font-serif text-lg text-gray-700">Guzman</p>
       </div>
 
       <p class="font-script text-3xl text-gray-800 mb-6">y</p>
 
-      <div class="mb-6">
+      <div class="mb-2">
         <h1 class="font-script text-8xl text-gray-800">Sara</h1>
         <p class="font-serif text-lg text-gray-700">Franco</p>
       </div>
@@ -80,7 +80,15 @@
         <span class="px-3 font-serif">Confirma tu asistencia</span>
         <div class="flex-1 border-t border-[#efc289]"></div>
       </div>
-    
+
+      <!-- Botón de confirmación -->
+      <div class="flex justify-center mt-4">
+        <button
+          class="px-6 w-full h-[50px] py-2 bg-[#efc289] text-black font-semibold rounded-lg shadow-md hover:bg-[#e6b872] transition-colors">
+          Confirmar asistencia
+        </button>
+      </div>
+
 
       <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
@@ -90,8 +98,6 @@
         Nuestra felicidad solo está completa cuando la compartimos con las personas a las que amamos
       </p>
 
-      <!-- Firma -->
-      <h3 class="mt-8 font-script text-3xl text-gray-800">¡Te esperamos!</h3>
     </div>
   </div>
 </template>
@@ -106,6 +112,7 @@
 .font-script {
   font-family: 'Great Vibes', cursive;
 }
+
 .font-serif {
   font-family: 'Playfair Display', serif;
 }
