@@ -1,21 +1,27 @@
 <template>
-  <div
-    class="min-h-screen flex flex-col items-center justify-center bg-white relative"
-  >
-    <h1 class="text-5xl font-bold mb-6 text-gray-900">
-      🌸 Invitación de Boda 🌸
-    </h1>
-    <p class="text-lg text-gray-700 max-w-[600px] text-center">
-      Con la bendición de Dios y nuestras familias, tenemos el honor de invitarte a
-      celebrar nuestra unión.
-      <br /><br />
-      📍 Medellín, Colombia <br />
-      📅 14 de Diciembre, 2025
-    </p>
+  <div class="flex flex-col w-full  w-full max-w-[800px] ">
+    <div class="bg-[#fdf6f1] w-full">
+      <!-- Imagen -->
+      <div class="relative">
+        <img src="/assets/juan-sara.jpeg" alt="Pareja en la playa" class="w-full object-cover" />
 
+        <!-- Degradado inferior encima de la imagen -->
+        <div
+          class="absolute bottom-0 w-full h-[220px] bg-gradient-to-t from-[#fdf6f1] via-[#fdf6f1]/80 to-transparent z-10">
+        </div>
+      </div>
+    </div>
+
+    <Information />
   </div>
 </template>
 
 <script setup>
+import Information from '../information/Information.vue';
 
+// No necesitas lógica por ahora, es puramente UI
 </script>
+
+<style scoped>
+/* Aquí puedes importar una fuente cursiva elegante si quieres */
+</style>

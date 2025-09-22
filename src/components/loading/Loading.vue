@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div class="flex justify-center w-full bg-[#fdf6f1] min-h-screen">
+    
     <!-- Loader con video -->
     <transition name="fade">
       <div
         v-if="showLoader"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6f1]"
       >
         <!-- Video de fondo -->
         <video
@@ -24,21 +25,21 @@
 
         <!-- Degradado superior -->
         <div
-          class="absolute top-0 w-full h-1/3 bg-gradient-to-b from-black/90 via-black/100 to-transparent"
+          class="absolute top-0 w-full h-1/3 bg-gradient-to-b from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent"
         ></div>
 
         <!-- Degradado inferior con nombres, cita y botón -->
         <div
           class="absolute bottom-0 w-full h-1/3 flex flex-col justify-center items-center
-                 bg-gradient-to-t from-black/90 via-black/100 to-transparent"
+                 bg-gradient-to-t from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent"
         >
           <h2
-            class="text-white text-4xl font-semibold tracking-wide cormorant-garamond mb-2"
+            class="text-gray-800 text-4xl  tracking-wide cormorant-garamond mb-2"
           >
             Juan & Sara
           </h2>
           <p
-            class="text-white text-center font-cormorant italic text-md max-w-[500px] px-4 mb-4"
+            class="text-gray-700 text-center font-cormorant italic text-md max-w-[500px] px-4 mb-4"
           >
             Por eso dejará el hombre a su padre y a su madre, y se unirá a su
             mujer, y serán una sola carne. <br />
@@ -49,9 +50,9 @@
           <button
             @click="startInvitation"
             :disabled="isCounting"
-            class="bg-white/20 text-white px-6 py-2 rounded-full 
-                   border border-white/40 backdrop-blur-sm 
-                   hover:bg-white/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            class="bg-gray-800/20 text-gray-800 px-6 py-2 rounded-full 
+                   border border-gray-800/40 backdrop-blur-sm 
+                   hover:bg-gray-800/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {{
               isCounting
