@@ -81,7 +81,7 @@
       <!-- Dress Code (texto original) -->
       <div class="text-gray-700">
         <h3 class="font-serif font-semibold">Dress Code</h3>
-        <p class="mt-2">Smoking para los hombres (color negro o colores tierra)</p>
+        <p class="mt-2 font-serif">Smoking para los hombres (color negro o colores tierra)</p>
         <p>Para las mujeres solo colores tierra</p>
       </div>
 
