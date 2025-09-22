@@ -1,35 +1,31 @@
 <template>
   <div class="flex justify-center bg-[#fdf6f1]">
-    <div class="w-full max-w-[800px] text-center p-8">
+    <div class="w-full max-w-[800px] text-center p-4">
       <!-- Nombres -->
 
-<!-- Nombres + flor -->
-<div class="flex flex-col items-center">
-  <!-- Imagen de flores arriba -->
-  <img
-    src="/assets/flores-3.png"
-    alt="Decoración flores"
-    class="w-40 h-auto mb-6"
-  />
+      <!-- Nombres + flor -->
+      <div class="flex flex-col items-center">
+        <!-- Imagen de flores arriba -->
+        <img src="/assets/flores-3.png" alt="Decoración flores" class="w-40 h-auto mb-6" />
 
-  <!-- Nombres en fila -->
-  <div class="flex items-end space-x-6">
-    <!-- Nombre 1 -->
-    <div class="text-center">
-      <h1 class="font-script text-7xl md:text-8xl text-gray-800">Juan</h1>
-      <p class="font-serif text-lg text-gray-700">Guzmán</p>
-    </div>
+        <!-- Nombres en fila -->
+        <div class="flex items-end space-x-6">
+          <!-- Nombre 1 -->
+          <div class="text-center">
+            <h1 class="font-script text-7xl md:text-8xl text-gray-800">Juan</h1>
+            <p class="font-serif text-lg text-gray-700">Guzmán</p>
+          </div>
 
-    <!-- "y" en el centro -->
-    <p class="font-script text-3xl md:text-4xl text-gray-800 mb-3">y</p>
+          <!-- "y" en el centro -->
+          <p class="font-script text-3xl md:text-4xl text-gray-800 mb-3">y</p>
 
-    <!-- Nombre 2 -->
-    <div class="text-center">
-      <h1 class="font-script text-7xl md:text-8xl text-gray-800">Sara</h1>
-      <p class="font-serif text-lg text-gray-700">Franco</p>
-    </div>
-  </div>
-</div>
+          <!-- Nombre 2 -->
+          <div class="text-center">
+            <h1 class="font-script text-7xl md:text-8xl text-gray-800">Sara</h1>
+            <p class="font-serif text-lg text-gray-700">Franco</p>
+          </div>
+        </div>
+      </div>
 
 
       <!-- Texto principal -->
@@ -102,8 +98,8 @@
       <!-- Botón de confirmación -->
       <div class="flex justify-center mt-4">
         <button
-          class="px-6 w-full h-[50px] py-2 bg-[#793710] text-white font-small rounded-lg shadow-md hover:bg-[#793720] transition-colors">
-          Confirmar asistencia
+          class="px-6 w-full h-[50px] py-2 bg-[#793710] text-white font-small font-serif rounded-lg shadow-md hover:bg-[#793720] transition-colors">
+          Confirmar
         </button>
       </div>
 

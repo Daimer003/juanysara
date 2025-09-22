@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center justify-center p-12 ">
+    <div class="flex flex-col items-center justify-center p-4 ">
          <h3 class=" font-script text-4xl text-gray-800">Forest Campestre</h3>
         <!-- Imagen principal -->
         <div class="relative w-full mt-3">
