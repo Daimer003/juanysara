@@ -6,7 +6,7 @@
       <!-- Nombres + flor -->
       <div class="flex flex-col items-center">
         <!-- Imagen de flores arriba -->
-        <img src="/assets/flores-3.png" alt="Decoración flores" class="w-40 h-auto mb-6" />
+        <img src="/assets/flores-3.png" alt="Decoración flores" class="w-30 h-auto " />
 
         <!-- Nombres en fila -->
         <div class="flex items-end space-x-6">
