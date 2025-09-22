@@ -42,7 +42,7 @@
         </div>
 
         <p class="mt-2 font-serif text-gray-700">Noviembre</p>
-        <h2 class="text-6xl font-bold text-[#793710]">19</h2>
+        <h2 class="text-7xl font-serif font-bold text-[#793710]">19</h2>
         <p class="font-serif text-gray-700">2025</p>
 
         <div class="flex items-center justify-between mt-2 text-gray-700">
