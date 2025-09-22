@@ -34,7 +34,7 @@
                  bg-gradient-to-t from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent"
         >
           <h2
-            class="text-gray-800 text-4xl  tracking-wide cormorant-garamond mb-2"
+            class="text-gray-800  tracking-wide font-script text-6xl mb-2"
           >
             Juan & Sara
           </h2>
@@ -149,5 +149,16 @@ const startInvitation = async () => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+</style>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap');
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+.font-serif {
+  font-family: 'Playfair Display', serif;
 }
 </style>
