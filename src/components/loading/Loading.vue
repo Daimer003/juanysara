@@ -39,11 +39,11 @@
             Juan & Sara
           </h2>
           <p
-            class="text-gray-700 text-center font-cormorant italic text-md max-w-[500px] px-4 mb-4"
+            class="text-gray-700 text-center font-serif italic text-md max-w-[500px] px-4 mb-4"
           >
             Por eso dejará el hombre a su padre y a su madre, y se unirá a su
             mujer, y serán una sola carne. <br />
-            <span class="text-sm opacity-80">— Génesis 2:24</span>
+            <span class="text-sm font-serif opacity-80">— Génesis 2:24</span>
           </p>
 
           <!-- Botón con contador -->
