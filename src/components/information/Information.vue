@@ -88,7 +88,7 @@
       <!-- ============================
            Sección añadida: imágenes con selectores de color
            ============================ -->
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 items-start">
+      <div class="mt-6 grid grid-cols-2 gap-3 items-start">
         <!-- HOMBRES: imagen + selectores -->
         <div class="flex flex-col items-center">
           <div class="relative w-full max-w-[320px]">
