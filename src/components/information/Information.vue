@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center bg-[#fdf6f1]">
-    <div class="w-full max-w-[800px] text-center p-12">
+    <div class="w-full max-w-[800px] text-center p-8">
       <!-- Nombres -->
       <div class="mb-2">
         <h1 class="font-script text-8xl text-gray-800">Juan</h1>
