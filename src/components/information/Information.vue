@@ -56,22 +56,22 @@
       <div class="border-t border-[#efc289] my-8"></div>
 
       <!-- Ceremonia y Recepción con línea vertical -->
-      <div class="grid grid-cols-2 gap-6 relative">
+      <div class="grid grid-cols-2 gap-0 relative">
         <!-- Línea vertical -->
         <div class="absolute top-0 bottom-0 left-1/2 border-l border-[#efc289]"></div>
 
         <div class="pr-6">
           <h3 class="font-semibold">Ceremonia</h3>
-          <p>4:00pm</p>
-          <p>Forest Campestre</p>
-          <p>Envigado</p>
+          <p class="text-xs md:text-lg">4:00pm</p>
+          <p class="text-xs md:text-lg">Forest Campestre</p>
+          <p class="text-xs md:text-lg">Envigado</p>
         </div>
 
         <div class="pl-6">
           <h3 class="font-semibold">Recepción</h3>
-          <p>Después de la ceremonia</p>
-          <p>Forest Campestre</p>
-          <p>Envigado</p>
+          <p class="text-xs md:text-lg">Después de la ceremonia</p>
+          <p class="text-xs md:text-lg">Forest Campestre</p>
+          <p class="text-xs md:text-lg">Envigado</p>
         </div>
       </div>
 
