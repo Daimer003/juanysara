@@ -33,6 +33,10 @@
         Tenemos el honor de invitarlos a celebrar nuestra unión matrimonial
       </p>
 
+      <p class="mt-2 font-serif text-[#793710]">
+        Invitado principal: {{ companion }} — Número de invitados: {{ invitados }}
+      </p>
+
       <!-- Fecha con líneas -->
       <div class="mt-8">
         <div class="flex items-center justify-between text-gray-700">
@@ -82,7 +86,7 @@
       <div class="text-gray-700">
         <h3 class="font-serif font-semibold">Dress Code</h3>
         <p class="mt-2 font-serif">Smoking para los hombres (color negro o colores tierra)</p>
-        <p>Para las mujeres solo colores tierra</p>
+        <p class="font-serif ">Para las mujeres solo colores tierra</p>
       </div>
 
       <!-- ============================
@@ -93,11 +97,8 @@
         <div class="flex flex-col items-center">
           <div class="relative w-full max-w-[320px]">
             <!-- imagen que cambia según selección -->
-            <img
-              :src="selectedMan === 'tierra' ? '/assets/c-tierra.jpg' : '/assets/c-negro.jpg'"
-              alt="Smoking hombre"
-              class="w-full h-auto shadow-md object-cover"
-            />
+            <img :src="selectedMan === 'tierra' ? '/assets/c-tierra.jpg' : '/assets/c-negro.jpg'" alt="Smoking hombre"
+              class="w-full h-auto shadow-md object-cover" />
             <!-- pequeño overlay degradado para que combine con el diseño -->
           </div>
 
@@ -107,46 +108,31 @@
           <!-- opciones de color -->
           <div class="flex items-center space-x-4 mt-3">
             <!-- Negro -->
-            <button
-              @click="selectedMan = 'negro'"
-              :aria-pressed="selectedMan === 'negro'"
+            <button @click="selectedMan = 'negro'" :aria-pressed="selectedMan === 'negro'"
               class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
               :class="selectedMan === 'negro' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
-              title="Negro"
-              style="background: black"
-            ></button>
+              title="Negro" style="background: black"></button>
 
             <!-- Tierra -->
-            <button
-              @click="selectedMan = 'tierra'"
-              :aria-pressed="selectedMan === 'tierra'"
+            <button @click="selectedMan = 'tierra'" :aria-pressed="selectedMan === 'tierra'"
               class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
               :class="selectedMan === 'tierra' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
-              title="Tierra"
-              style="background: #a17c56"
-            ></button>
+              title="Tierra" style="background: #a17c56"></button>
           </div>
         </div>
 
         <!-- MUJERES: imagen + indicador de color tierra -->
         <div class="flex flex-col items-center">
           <div class="relative w-full max-w-[320px]">
-            <img
-              src="/assets/c-tierra-d.jpg"
-              alt="Vestido mujer - color tierra"
-              class="w-full h-auto shadow-md object-cover"
-            />
+            <img src="/assets/c-tierra-d.jpg" alt="Vestido mujer - color tierra"
+              class="w-full h-auto shadow-md object-cover" />
           </div>
 
           <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — color recomendado</p>
 
           <div class="flex justify-center mt-3">
-            <div
-              class="w-10 h-10 rounded-full border-2 border-[#efc289]"
-              style="background: #a17c56"
-              title="Tierra"
-              aria-hidden="true"
-            ></div>
+            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #a17c56" title="Tierra"
+              aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -185,6 +171,15 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+// Parámetros de la URL
+const companion = route.query.companion || 'Invitado'
+const invitados = route.query.invitados || 1
+
+console.log("Acompañante:", companion, "Invitados extra:", invitados);
 
 const selectedMan = ref("tierra"); // valor inicial (negro o tierra)
 </script>
