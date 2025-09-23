@@ -82,61 +82,81 @@
       <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
-      <!-- Dress Code (texto original) -->
-      <div class="text-gray-700">
-        <h3 class="font-serif font-semibold">Colores sugeridos</h3>
-        <p class="mt-2 font-serif">Smoking para los hombres (color negro o colores tierra)</p>
-        <p class="font-serif ">Para las mujeres solo colores tierra</p>
-      </div>
+<!-- Dress Code -->
+<div class="text-gray-700">
+  <h3 class="font-serif font-semibold">Colores reservados</h3>
+  <p class="mt-2 font-serif text-sm">Estos colores están destinados exclusivamente a los novios</p>
 
-      <!-- ============================
-           Sección añadida: imágenes con selectores de color
-           ============================ -->
-      <div class="mt-6 grid grid-cols-2 gap-3 items-start">
-        <!-- HOMBRES: imagen + selectores -->
-        <div class="flex flex-col items-center">
-          <div class="relative w-full max-w-[320px]">
-            <!-- imagen que cambia según selección -->
-            <img :src="selectedMan === 'tierra' ? '/assets/c-tierra.jpg' : '/assets/c-gris.jpg'" alt="Smoking hombre"
-              class="w-full h-auto shadow-md object-cover" />
-            <!-- pequeño overlay degradado para que combine con el diseño -->
-          </div>
+  <!-- Colores reservados -->
+  <div class="flex justify-center space-x-8 mt-4">
+    <!-- Negro - Juan -->
+    <div class="flex flex-col items-center">
+      <div class="w-12 h-12 rounded-full border-2 border-gray-400" style="background: black;"></div>
+      <p class="mt-1 text-xs font-serif text-gray-700">Juan Guzmán — Negro Franco</p>
+    </div>
 
-          <!-- etiquetas -->
-          <p class="mt-3 font-serif text-sm text-gray-700">Hombres — elija color</p>
+    <!-- Blanco - Sara -->
+    <div class="flex flex-col items-center">
+      <div class="w-12 h-12 rounded-full border-2 border-gray-400" style="background: white;"></div>
+      <p class="mt-1 text-xs font-serif text-gray-700">Sara — Blanco</p>
+    </div>
+  </div>
+</div>
 
-          <!-- opciones de color -->
-          <div class="flex items-center space-x-4 mt-3">
-            <!-- Negro -->
-            <button @click="selectedMan = 'negro'" :aria-pressed="selectedMan === 'negro'"
-              class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
-              :class="selectedMan === 'negro' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
-              title="Negro" style="background: gray"></button>
+<!-- Línea divisoria -->
+<div class="border-t border-[#efc289] my-8"></div>
 
-            <!-- Tierra -->
-            <button @click="selectedMan = 'tierra'" :aria-pressed="selectedMan === 'tierra'"
-              class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
-              :class="selectedMan === 'tierra' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
-              title="Tierra" style="background: #a17c56"></button>
-          </div>
-        </div>
+<!-- Colores invitados -->
+<div class="text-gray-700">
+  <h3 class="font-serif font-semibold">Colores sugeridos para invitados</h3>
+  <p class="mt-2 font-serif">Smoking para los hombres en colores tierra o gris</p>
+  <p class="font-serif">Para las mujeres solo colores tierra</p>
+</div>
 
-        <!-- MUJERES: imagen + indicador de color tierra -->
-        <div class="flex flex-col items-center">
-          <div class="relative w-full max-w-[320px]">
-            <img src="/assets/c-tierra-d.jpg" alt="Vestido mujer - color tierra"
-              class="w-full h-auto shadow-md object-cover" />
-          </div>
+<!-- ============================
+     Sección añadida: imágenes con selectores de color
+     ============================ -->
+<div class="mt-6 grid grid-cols-2 gap-3 items-start">
+  <!-- HOMBRES: imagen + selectores -->
+  <div class="flex flex-col items-center">
+    <div class="relative w-full max-w-[320px]">
+      <img :src="selectedMan === 'tierra' ? '/assets/c-tierra.jpg' : '/assets/c-gris.jpg'" 
+           alt="Smoking hombre"
+           class="w-full h-auto shadow-md object-cover" />
+    </div>
 
-          <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — colores sugeridos</p>
+    <p class="mt-3 font-serif text-sm text-gray-700">Hombres — elija color</p>
 
-          <div class="flex justify-center mt-3">
-            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #a17c56" title="Tierra"
-              aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
-      <!-- ============================ fin sección añadida ============================ -->
+    <div class="flex items-center space-x-4 mt-3">
+      <!-- Gris -->
+      <button @click="selectedMan = 'gris'" :aria-pressed="selectedMan === 'gris'"
+        class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
+        :class="selectedMan === 'gris' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
+        title="Gris" style="background: gray"></button>
+
+      <!-- Tierra -->
+      <button @click="selectedMan = 'tierra'" :aria-pressed="selectedMan === 'tierra'"
+        class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
+        :class="selectedMan === 'tierra' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
+        title="Tierra" style="background: #a17c56"></button>
+    </div>
+  </div>
+
+  <!-- MUJERES -->
+  <div class="flex flex-col items-center">
+    <div class="relative w-full max-w-[320px]">
+      <img src="/assets/c-tierra-d.jpg" alt="Vestido mujer - color tierra"
+           class="w-full h-auto shadow-md object-cover" />
+    </div>
+
+    <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — colores sugeridos</p>
+
+    <div class="flex justify-center mt-3">
+      <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" 
+           style="background: #a17c56" title="Tierra"></div>
+    </div>
+  </div>
+</div>
 
       <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
