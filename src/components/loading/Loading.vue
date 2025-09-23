@@ -28,13 +28,13 @@
           class="absolute top-0 w-full h-1/3 bg-gradient-to-b from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent"
         ></div>
 
-        <!-- Degradado inferior con nombres, cita y botón -->
+        <!-- Degradado inferior con nombres, cita y botones -->
         <div
           class="absolute bottom-0 w-full h-1/3 flex flex-col justify-center items-center
                  bg-gradient-to-t from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent"
         >
           <h2
-            class="text-gray-800  tracking-wide font-script text-6xl mb-2"
+            class="text-gray-800 tracking-wide font-script text-6xl mb-2"
           >
             Juan & Sara
           </h2>
@@ -52,7 +52,7 @@
             :disabled="isCounting"
             class="bg-gray-800/20 text-gray-800 px-6 py-2 rounded-full 
                    border border-gray-800/40 backdrop-blur-sm 
-                   hover:bg-gray-800/30 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                   hover:bg-gray-800/30 transition disabled:opacity-50 disabled:cursor-not-allowed mb-2"
           >
             {{
               isCounting
@@ -60,6 +60,15 @@
                 : "Ver la invitación"
             }}
           </button>
+
+          <!-- Botón para pausar/reanudar música -->
+       <button
+  @click="toggleMusic"
+  class="fixed bottom-4 right-4 z-50 bg-gray-800/20 text-gray-800 px-4 py-2 rounded-full 
+         border border-gray-800/40 backdrop-blur-sm hover:bg-gray-800/30 transition"
+>
+  {{ isMusicPlaying ? "⏸️ Pausar música" : "▶️ Reanudar música" }}
+</button>
         </div>
 
         <!-- Audio del loader -->
@@ -73,7 +82,7 @@
       </div>
     </transition>
 
-    <!-- Audio de la invitación fuera del loader -->
+    <!-- Audio de la invitación -->
     <audio id="bg-music-2" loop></audio>
 
     <!-- Página de invitación -->
@@ -88,8 +97,9 @@ import { ref } from "vue"
 import Invitation from "../views/Invitation.vue"
 
 const showLoader = ref(true)
-const countdown = ref(20) // segundos
+const countdown = ref(20)
 const isCounting = ref(false)
+const isMusicPlaying = ref(true) // estado para el botón
 
 let interval = null
 let audio1 = null
@@ -100,7 +110,8 @@ const startInvitation = async () => {
   audio2 = document.getElementById("bg-music-2")
 
   // asignamos la fuente de audio 2
-  audio2.src = "https://res.cloudinary.com/diccp2984/video/upload/v1758315071/audio-2_wfumoa.mp3"
+  audio2.src =
+    "https://res.cloudinary.com/diccp2984/video/upload/v1758315071/audio-2_wfumoa.mp3"
 
   if (audio1) {
     audio1.volume = 1
@@ -130,35 +141,27 @@ const startInvitation = async () => {
       if (audio2) {
         audio2.volume = 0.7
         audio2.loop = true
-        await audio2.play().catch((err) => console.warn("Reproducción bloqueada:", err))
+        await audio2.play().catch((err) =>
+          console.warn("Reproducción bloqueada:", err)
+        )
       }
 
-      // Mostramos la invitación
       showLoader.value = false
     }
   }, 1000)
 }
+
+// Función para pausar/reanudar música
+const toggleMusic = () => {
+  const currentAudio = !showLoader.value ? audio2 : audio1
+  if (currentAudio) {
+    if (isMusicPlaying.value) {
+      currentAudio.pause()
+      isMusicPlaying.value = false
+    } else {
+      currentAudio.play().catch((err) => console.warn("Error al reanudar:", err))
+      isMusicPlaying.value = true
+    }
+  }
+}
 </script>
-
-<style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
-
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap');
-
-.font-script {
-  font-family: 'Great Vibes', cursive;
-}
-.font-serif {
-  font-family: 'Playfair Display', serif;
-}
-</style>

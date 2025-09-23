@@ -84,7 +84,7 @@
 
       <!-- Dress Code (texto original) -->
       <div class="text-gray-700">
-        <h3 class="font-serif font-semibold">Dress Code</h3>
+        <h3 class="font-serif font-semibold">Colores sugeridos</h3>
         <p class="mt-2 font-serif">Smoking para los hombres (color negro o colores tierra)</p>
         <p class="font-serif ">Para las mujeres solo colores tierra</p>
       </div>
@@ -97,7 +97,7 @@
         <div class="flex flex-col items-center">
           <div class="relative w-full max-w-[320px]">
             <!-- imagen que cambia según selección -->
-            <img :src="selectedMan === 'tierra' ? '/assets/c-tierra.jpg' : '/assets/c-negro.jpg'" alt="Smoking hombre"
+            <img :src="selectedMan === 'tierra' ? '/assets/c-tierra.jpg' : '/assets/c-gris.jpg'" alt="Smoking hombre"
               class="w-full h-auto shadow-md object-cover" />
             <!-- pequeño overlay degradado para que combine con el diseño -->
           </div>
@@ -111,7 +111,7 @@
             <button @click="selectedMan = 'negro'" :aria-pressed="selectedMan === 'negro'"
               class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
               :class="selectedMan === 'negro' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
-              title="Negro" style="background: black"></button>
+              title="Negro" style="background: gray"></button>
 
             <!-- Tierra -->
             <button @click="selectedMan = 'tierra'" :aria-pressed="selectedMan === 'tierra'"
@@ -128,7 +128,7 @@
               class="w-full h-auto shadow-md object-cover" />
           </div>
 
-          <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — color recomendado</p>
+          <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — colores sugeridos</p>
 
           <div class="flex justify-center mt-3">
             <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #a17c56" title="Tierra"
