@@ -150,7 +150,7 @@
 
       <!-- Botón de confirmación -->
       <div class="flex justify-center mt-4">
-        <button
+        <button @click="confirmarAsistencia"
           class="px-6 w-full h-[50px] py-2 bg-[#793710] text-white font-small font-serif shadow-md hover:bg-[#793720] transition-colors">
           Confirmar
         </button>
@@ -181,7 +181,16 @@ const invitados = route.query.invitados || 1
 
 console.log("Acompañante:", companion, "Invitados extra:", invitados);
 
-const selectedMan = ref("tierra"); // valor inicial (negro o tierra)
+const selectedMan = ref("tierra"); 
+
+// Teléfono destino (coloca el número real con código de país sin + ni espacios)
+const telefono = "573125660618"; 
+
+function confirmarAsistencia() {
+  const mensaje = `Confirmación de asistencia:\n\nInvitado principal: ${companion}\nNúmero de invitados: ${invitados}`;
+  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+  window.location.href = url;
+}
 </script>
 
 <style scoped>
