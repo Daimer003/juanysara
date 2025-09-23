@@ -1,15 +1,14 @@
 <template>
-  <div class="flex flex-col w-full max-w-[800px] relative mx-auto">
-    <div class="flex justify-center bg-[#fdf6f1] w-full relative">
+  <div 
+  class="flex flex-col w-full max-w-[800px] relative mx-auto bg-texture"
+  >
+    <div class="flex justify-center  w-full relative">
       <Countdown />
       <!-- Imagen -->
       <div class="relative">
-        <img src="/assets/juan-sara.jpeg" alt="Pareja en la playa" class="w-full object-cover" />
+        <img src="/assets/juan-sara.jpeg" alt="Pareja en la playa"  class="w-full object-cover fade-edges" />
 
-        <!-- Degradado inferior encima de la imagen -->
-        <div
-          class="absolute bottom-0 w-full h-[220px] bg-gradient-to-t from-[#fdf6f1] via-[#fdf6f1]/80 to-transparent z-10">
-        </div>
+    
       </div>
     </div>
  
@@ -52,3 +51,18 @@ const toggleMusic = () => {
   }
 };
 </script>
+
+<style>
+.fade-edges {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+                      linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-composite: intersect;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
+               linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+</style>

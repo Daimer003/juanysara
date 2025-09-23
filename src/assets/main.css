@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
 
-body{
+body {
   width: 100%;
   height: auto;
+
+
 }
 
 
 .cormorant-garamond {
   font-family: "Cormorant Garamond", serif;
   font-optical-sizing: auto;
-  font-weight:500;
+  font-weight: 500;
   font-style: normal;
+}
+
+.bg-texture {
+  background-color: #fdf6f1;
+  background-image: url(http://www.transparenttextures.com/patterns/concrete-wall-3.png);
 }

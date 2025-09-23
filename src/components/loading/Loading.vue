@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center w-full bg-[#fdf6f1] min-h-screen">
+  <div class="flex justify-center w-full bg-texture min-h-screen">
     
     <!-- Loader con video -->
     <transition name="fade">
@@ -97,7 +97,7 @@ import { ref } from "vue"
 import Invitation from "../views/Invitation.vue"
 
 const showLoader = ref(true)
-const countdown = ref(20)
+const countdown = ref(11)
 const isCounting = ref(false)
 const isMusicPlaying = ref(true) // estado para el botón
 
@@ -165,3 +165,14 @@ const toggleMusic = () => {
   }
 }
 </script>
+
+
+<style>
+
+.bg{
+  background-color: #8a008a;
+background-image: url(http://www.transparenttextures.com/patterns/concrete-wall-3.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+</style>

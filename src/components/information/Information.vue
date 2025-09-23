@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center bg-[#fdf6f1]">
+  <div class="flex justify-center bg-texture">
     <div class="w-full max-w-[800px] text-center p-4">
       <!-- Nombres -->
 
