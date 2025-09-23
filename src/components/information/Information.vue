@@ -17,7 +17,7 @@
           </div>
 
           <!-- "y" en el centro -->
-          <p class="font-script text-3xl md:text-4xl text-gray-800 mb-3">y</p>
+          <p class="font-script text-3xl md:text-4xl text-gray-800 mb-3">&</p>
 
           <!-- Nombre 2 -->
           <div class="text-center">
