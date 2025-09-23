@@ -66,16 +66,16 @@
 
         <div class="pr-6">
           <h3 class="font-serif font-semibold">Ceremonia</h3>
-          <p class="text-xs font-serif  md:text-lg">4:00pm</p>
-          <p class="text-xs font-serif md:text-lg">Forest Campestre</p>
-          <p class="text-xs font-serif md:text-lg">Envigado</p>
+          <p class="text-xs font-serif  md:text-sm">4:00pm</p>
+          <p class="text-xs font-serif md:text-sm">Forest Campestre</p>
+          <p class="text-xs font-serif md:text-sm">Envigado</p>
         </div>
 
         <div class="pl-6">
           <h3 class="font-serif font-semibold">Recepción</h3>
-          <p class="text-xs font-serif md:text-lg">Después de la ceremonia</p>
-          <p class="text-xs font-serif md:text-lg">Forest Campestre</p>
-          <p class="text-xs font-serif md:text-lg">Envigado</p>
+          <p class="text-xs font-serif md:text-sm">Después de la ceremonia</p>
+          <p class="text-xs font-serif md:text-sm">Forest Campestre</p>
+          <p class="text-xs font-serif md:text-sm">Envigado</p>
         </div>
       </div>
 
