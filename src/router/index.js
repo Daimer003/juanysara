@@ -3,7 +3,7 @@ import Invitation from '../components/views/Invitation.vue'
 import Load from '../components/loading/Loading.vue'
 
 const routes = [
-  { path: '/', component: Load },
+  { path: '/invitation', component: Load },
   { path: '/invitation', component: Invitation },
 ]
 

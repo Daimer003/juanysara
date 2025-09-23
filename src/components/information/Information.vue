@@ -179,7 +179,6 @@ const route = useRoute();
 const companion = route.query.companion || 'Invitado'
 const invitados = route.query.invitados || 1
 
-console.log("Acompañante:", companion, "Invitados extra:", invitados);
 
 const selectedMan = ref("tierra"); 
 
