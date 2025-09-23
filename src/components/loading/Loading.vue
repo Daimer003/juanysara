@@ -1,59 +1,37 @@
 <template>
   <div class="flex justify-center w-full bg-texture min-h-screen">
-    
+
     <!-- Loader con video -->
     <transition name="fade">
-      <div
-        v-if="showLoader"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6f1]"
-      >
+      <div v-if="showLoader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6f1]">
         <!-- Video de fondo -->
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          class="absolute inset-0 w-full h-full object-cover
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover
                  [mask-image:radial-gradient(ellipse_at_center,rgba(0,0,0,1)_45%,transparent_100%)]
-                 [mask-repeat:no-repeat] [mask-position:center] [mask-size:cover]"
-        >
-          <source
-            src="https://res.cloudinary.com/diccp2984/video/upload/v1758308487/load-boda_mjzo75.mp4"
-            type="video/mp4"
-          />
+                 [mask-repeat:no-repeat] [mask-position:center] [mask-size:cover]">
+          <source src="https://res.cloudinary.com/diccp2984/video/upload/v1758308487/load-boda_mjzo75.mp4"
+            type="video/mp4" />
         </video>
 
         <!-- Degradado superior -->
-        <div
-          class="absolute top-0 w-full h-1/3 bg-gradient-to-b from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent"
-        ></div>
+        <div class="absolute top-0 w-full h-1/3 bg-gradient-to-b from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent">
+        </div>
 
         <!-- Degradado inferior con nombres, cita y botones -->
-        <div
-          class="absolute bottom-0 w-full h-1/3 flex flex-col justify-center items-center
-                 bg-gradient-to-t from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent"
-        >
-          <h2
-            class="text-gray-800 tracking-wide font-script text-6xl mb-2"
-          >
+        <div class="absolute bottom-0 w-full h-1/3 flex flex-col justify-center items-center
+                 bg-gradient-to-t from-[#fdf6f1]/90 via-[#fdf6f1]/100 to-transparent">
+          <h2 class="text-gray-800 tracking-wide font-script text-6xl mb-2">
             Juan & Sara
           </h2>
-          <p
-            class="text-gray-700 text-center font-serif italic text-md max-w-[500px] px-4 mb-3"
-          >
+          <p class="text-gray-700 text-center font-serif italic text-md max-w-[500px] px-4 mb-3">
             Por eso dejará el hombre a su padre y a su madre, y se unirá a su
             mujer, y serán una sola carne. <br />
             <span class="text-sm font-serif opacity-80">— Génesis 2:24</span>
           </p>
 
           <!-- Botón con contador -->
-          <button
-            @click="startInvitation"
-            :disabled="isCounting"
-            class="bg-gray-800/20 text-gray-800 px-6 py-2 rounded-full 
+          <button @click="startInvitation" :disabled="isCounting" class="bg-gray-800/20 text-gray-800 px-6 py-2 rounded-full 
                    border border-gray-800/40 backdrop-blur-sm 
-                   hover:bg-gray-800/30 transition disabled:opacity-50 disabled:cursor-not-allowed mb-2"
-          >
+                   hover:bg-gray-800/30 transition disabled:opacity-50 disabled:cursor-not-allowed mb-2">
             {{
               isCounting
                 ? `Cargando invitación... (${countdown})`
@@ -62,21 +40,16 @@
           </button>
 
           <!-- Botón para pausar/reanudar música -->
-       <button
-  @click="toggleMusic"
-  class="fixed bottom-4 right-4 z-50 bg-gray-800/20 text-gray-800 px-4 py-2 rounded-full 
-         border border-gray-800/40 backdrop-blur-sm hover:bg-gray-800/30 transition"
->
-  {{ isMusicPlaying ? "⏸️ Pausar música" : "▶️ Reanudar música" }}
-</button>
+          <button @click="toggleMusic" class="fixed bottom-4 right-4 z-50 bg-gray-800/20 text-gray-800 px-4 py-2 rounded-full 
+         border border-gray-800/40 backdrop-blur-sm hover:bg-gray-800/30 transition">
+            {{ isMusicPlaying ? "⏸️ Pausar música" : "▶️ Reanudar música" }}
+          </button>
         </div>
 
         <!-- Audio del loader -->
         <audio id="bg-music-1" loop>
-          <source
-            src="https://res.cloudinary.com/diccp2984/video/upload/v1758311134/audio-1_jxocvi.mp3"
-            type="audio/mpeg"
-          />
+          <source src="https://res.cloudinary.com/diccp2984/video/upload/v1758311134/audio-1_jxocvi.mp3"
+            type="audio/mpeg" />
           Tu navegador no soporta audio HTML5.
         </audio>
       </div>
@@ -168,11 +141,9 @@ const toggleMusic = () => {
 
 
 <style>
-
-.bg{
+.bg {
   background-color: #8a008a;
-background-image: url(http://www.transparenttextures.com/patterns/concrete-wall-3.png);
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-image: url(http://www.transparenttextures.com/patterns/concrete-wall-3.png);
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
-
 </style>
