@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col w-full  w-full max-w-[800px] ">
-    <div class="bg-[#fdf6f1] w-full">
+    <div class="bg-[#fdf6f1] w-full relative">
+      <Countdown />
       <!-- Imagen -->
       <div class="relative">
         <img src="/assets/juan-sara.jpeg" alt="Pareja en la playa" class="w-full object-cover" />
@@ -11,7 +12,7 @@
         </div>
       </div>
     </div>
-
+ 
     <Information />
     <Club />
 
@@ -21,6 +22,7 @@
 
 <script setup>
 import Club from '../club/Club.vue';
+import Countdown from '../countdown/Countdown.vue';
 import Information from '../information/Information.vue';
 
 // No necesitas lógica por ahora, es puramente UI
