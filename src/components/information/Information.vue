@@ -92,13 +92,13 @@
     <!-- Negro - Juan -->
     <div class="flex flex-col items-center">
       <div class="w-12 h-12 rounded-full border-2 border-gray-400" style="background: black;"></div>
-      <p class="mt-1 text-xs font-serif text-gray-700">Juan Guzmán — Negro Franco</p>
+      <p class="mt-1 text-xs font-serif text-gray-700">Juan Guzmán — Negro</p>
     </div>
 
     <!-- Blanco - Sara -->
     <div class="flex flex-col items-center">
       <div class="w-12 h-12 rounded-full border-2 border-gray-400" style="background: white;"></div>
-      <p class="mt-1 text-xs font-serif text-gray-700">Sara — Blanco</p>
+      <p class="mt-1 text-xs font-serif text-gray-700">Sara Franco — Blanco</p>
     </div>
   </div>
 </div>

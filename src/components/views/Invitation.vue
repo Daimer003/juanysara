@@ -53,6 +53,7 @@ const toggleMusic = () => {
 </script>
 
 <style>
+
 .fade-edges {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%),
                       linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);

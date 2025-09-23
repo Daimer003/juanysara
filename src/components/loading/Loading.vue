@@ -42,7 +42,7 @@
           <!-- Botón para pausar/reanudar música -->
           <button @click="toggleMusic" class="fixed bottom-4 right-4 z-50 bg-gray-800/20 text-gray-800 px-4 py-2 rounded-full 
          border border-gray-800/40 backdrop-blur-sm hover:bg-gray-800/30 transition">
-            {{ isMusicPlaying ? "⏸️ Pausar música" : "▶️ Reanudar música" }}
+            {{ isMusicPlaying ? "⏸️" : "▶️" }}
           </button>
         </div>
 
@@ -141,6 +141,17 @@ const toggleMusic = () => {
 
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap');
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
 .bg {
   background-color: #8a008a;
   background-image: url(http://www.transparenttextures.com/patterns/concrete-wall-3.png);
