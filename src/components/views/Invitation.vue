@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full  w-full max-w-[800px] ">
-    <div class="bg-[#fdf6f1] w-full relative">
+    <div class="flex justify-center bg-[#fdf6f1] w-full relative">
       <Countdown />
       <!-- Imagen -->
       <div class="relative">

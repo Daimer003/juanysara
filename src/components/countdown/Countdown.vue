@@ -1,14 +1,15 @@
 <template>
-  <div class="flex justify-center mt-8 w-full text-center absolute z-50">
-    <!-- Título -->
-    <div class="flex items-center justify-between text-gray-700 mb-4">
+  <div class="flex justify-center flex-col mt-8  w-full max-w-[400px] mx-auto text-center absolute z-50">
+  
+  <!-- Título -->
+    <div class="flex items-center justify-between  text-gray-700 mb-4">
       <div class="flex-1 border-t border-[#efc289]"></div>
-      <span class="px-3 font-serif">Faltan</span>
+      <span class="px-3 font-script text-4xl">Faltan</span>
       <div class="flex-1 border-t border-[#efc289]"></div>
     </div>
-
     <!-- Contador -->
     <div class="grid grid-cols-4 gap-4 justify-center">
+      
       <!-- Días -->
       <div class="flex flex-col items-center">
         <span class="text-4xl md:text-5xl font-script font-bold text-[#793710]">{{ timeLeft.days }}</span>
