@@ -77,6 +77,39 @@ const isMusicPlaying = ref(true) // estado para el botón
 let interval = null
 let audio1 = null
 let audio2 = null
+let fadingStarted = false // 👈 bandera para no repetir fadeOut
+
+// Función para hacer fade out
+function fadeOut(audio, duration = 3000) {
+  if (!audio) return
+  const step = audio.volume / (duration / 100)
+  const fade = setInterval(() => {
+    if (audio.volume > step) {
+      audio.volume = Math.max(0, audio.volume - step)
+    } else {
+      audio.volume = 0
+      clearInterval(fade)
+      audio.pause()
+      audio.currentTime = 0
+    }
+  }, 100) // cada 100ms baja volumen
+}
+
+// Función para hacer fade in
+function fadeIn(audio, targetVolume = 0.7, duration = 3000) {
+  if (!audio) return
+  audio.volume = 0
+  audio.play().catch((err) => console.warn("Autoplay bloqueado:", err))
+  const step = targetVolume / (duration / 100)
+  const fade = setInterval(() => {
+    if (audio.volume < targetVolume - step) {
+      audio.volume = Math.min(targetVolume, audio.volume + step)
+    } else {
+      audio.volume = targetVolume
+      clearInterval(fade)
+    }
+  }, 100) // cada 100ms sube volumen
+}
 
 const startInvitation = async () => {
   audio1 = document.getElementById("bg-music-1")
@@ -96,28 +129,17 @@ const startInvitation = async () => {
   interval = setInterval(async () => {
     countdown.value--
 
-    // Fade out de la primera canción en los últimos 3 segundos
-    if (countdown.value <= 3 && audio1) {
-      audio1.volume = Math.max(0, audio1.volume - 0.33)
+    // 👇 Cuando llegue a 5 empieza fadeOut
+    if (countdown.value === 5 && !fadingStarted) {
+      fadeOut(audio1, 5000) // 5 segundos de fade
+      fadingStarted = true
     }
 
     if (countdown.value === 0) {
       clearInterval(interval)
 
-      // Detenemos primera canción
-      if (audio1) {
-        audio1.pause()
-        audio1.currentTime = 0
-      }
-
-      // Arrancamos segunda canción sin límite de tiempo
-      if (audio2) {
-        audio2.volume = 0.7
-        audio2.loop = true
-        await audio2.play().catch((err) =>
-          console.warn("Reproducción bloqueada:", err)
-        )
-      }
+      // fade in de la segunda canción
+      fadeIn(audio2, 0.7, 4000)
 
       showLoader.value = false
     }
@@ -139,9 +161,7 @@ const toggleMusic = () => {
 }
 </script>
 
-
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap');
 
 .font-script {
@@ -155,6 +175,5 @@ const toggleMusic = () => {
 .bg {
   background-color: #8a008a;
   background-image: url(http://www.transparenttextures.com/patterns/concrete-wall-3.png);
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 </style>

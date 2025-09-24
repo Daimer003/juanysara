@@ -140,37 +140,37 @@
           </div>
         </div>
 
-  <!-- MUJERES -->
-<div class="flex flex-col items-center">
-  <div class="relative w-full max-w-[320px]">
-    <img src="/assets/c-tierra-d.jpg" alt="Vestido mujer - colores sugeridos"
-      class="w-full h-auto shadow-md object-cover" />
-  </div>
+        <!-- MUJERES -->
+        <div class="flex flex-col items-center">
+          <div class="relative w-full max-w-[320px]">
+            <img src="/assets/c-tierra-d.jpg" alt="Vestido mujer - colores sugeridos"
+              class="w-full h-auto shadow-md object-cover" />
+          </div>
 
-  <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — colores sugeridos</p>
+          <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — colores sugeridos</p>
 
-  <div class="flex flex-wrap justify-center gap-3 mt-3">
-    <!-- Matcha -->
-    <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" 
-         style="background: #809671" title="Matcha"></div>
+          <div class="flex flex-wrap justify-center gap-3 mt-3">
+            <!-- Matcha -->
+            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #809671" title="Matcha">
+            </div>
 
-    <!-- Pistache -->
-    <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" 
-         style="background: #B3B792" title="Pistache"></div>
+            <!-- Pistache -->
+            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #B3B792" title="Pistache">
+            </div>
 
-    <!-- Chai -->
-    <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" 
-         style="background: #D2AB80" title="Chai"></div>
+            <!-- Chai -->
+            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #D2AB80" title="Chai">
+            </div>
 
-    <!-- Carob -->
-    <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" 
-         style="background: #725C3A" title="Carob"></div>
+            <!-- Carob -->
+            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #725C3A" title="Carob">
+            </div>
 
-    <!-- Vanilla -->
-    <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" 
-         style="background: #E5D2B8" title="Vanilla"></div>
-  </div>
-</div>
+            <!-- Vanilla -->
+            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #E5D2B8" title="Vanilla">
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Línea divisoria -->
