@@ -117,7 +117,7 @@
           </div>
           <p class="mt-3 font-serif text-sm text-gray-700">Hombres — elija color</p>
 
-          <div class="flex items-center space-x-4 mt-3 flex-wrap justify-center">
+          <div class="flex flex-wrap justify-center gap-3 mt-3">
             <button
               v-for="(color, key) in manColors"
               :key="key"
