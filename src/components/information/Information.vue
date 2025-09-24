@@ -127,13 +127,13 @@
 
           <div class="flex items-center space-x-4 mt-3">
             <!-- Gris -->
-            <button @click="selectedMan = 'gris'" :aria-pressed="selectedMan === 'gris'"
+            <button :aria-pressed="selectedMan === 'gris'"
               class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
               :class="selectedMan === 'gris' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
               title="Gris" style="background: gray"></button>
 
             <!-- Tierra -->
-            <button @click="selectedMan = 'tierra'" :aria-pressed="selectedMan === 'tierra'"
+            <button  :aria-pressed="selectedMan === 'tierra'"
               class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
               :class="selectedMan === 'tierra' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
               title="Tierra" style="background: #a17c56"></button>
