@@ -102,9 +102,8 @@
 
       <!-- Colores invitados -->
       <div class="text-gray-700">
-        <h3 class="font-serif font-semibold">Colores sugeridos para invitados</h3>
-        <p class="mt-2 font-serif">Para los hombres, traje en tonos tierra, gris, azul marino o verde oliva.</p>
-        <p class="font-serif">Para las mujeres, elegancia en colores tierra, verdes y azules suaves.</p>
+        <h3 class="font-serif font-semibold">¿Sin ideas?</h3>
+        <p class="mt-2 font-serif">Aquí tienes un par de outfits que pueden inspirarte y hacer que brilles en este día tan especial.</p>
       </div>
 
       <!-- Vestimenta interactiva -->
@@ -225,13 +224,18 @@ const womanColors = {
   terracota: { name: "Terracota", hex: "#b35832" },
   matcha: { name: "Matcha", hex: "#809671" },
   pistacho: { name: "Pistacho", hex: "#B3B792" },
-  azul: { name: "Azul Suave", hex: "#87a6c0" }
+  azul: { name: "Azul Suave", hex: "#87a6c0" },
+  beige: { name: "Beige Vainilla", hex: "#E8D9B5" },
+  rosa: { name: "Rosa Empolvado", hex: "#D8AFA8" }
 };
+
 const womanImages = {
   terracota: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_10_crpzme.jpg",
   matcha: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_7_qvjivh.jpg",
   pistacho: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_8_yg01hj.jpg",
-  azul: "https://res.cloudinary.com/diccp2984/image/upload/v1758736373/Mask_group_9_qonegx.jpg"
+  azul: "https://res.cloudinary.com/diccp2984/image/upload/v1758736373/Mask_group_9_qonegx.jpg",
+  beige: "https://res.cloudinary.com/diccp2984/image/upload/v1758745536/Mask_group_11_hmfu7e.jpg",
+  rosa: "https://res.cloudinary.com/diccp2984/image/upload/v1758745536/Mask_group_12_msvtle.jpg"
 };
 
 // WhatsApp confirmación
