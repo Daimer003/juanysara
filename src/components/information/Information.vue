@@ -103,8 +103,8 @@
       <!-- Colores invitados -->
       <div class="text-gray-700">
         <h3 class="font-serif font-semibold">Colores sugeridos para invitados</h3>
-        <p class="mt-2 font-serif">Smoking para los hombres en colores tierra o gris</p>
-        <p class="font-serif">Para las mujeres solo colores tierra</p>
+        <p class="mt-2 font-serif">Para los hombres, traje en tonos tierra, gris, azul marino o verde oliva.</p>
+        <p class="font-serif">Para las mujeres, elegancia en colores tierra, verdes y azules suaves.</p>
       </div>
 
       <!-- Vestimenta interactiva -->
