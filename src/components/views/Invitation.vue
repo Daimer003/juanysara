@@ -6,7 +6,7 @@
       <Countdown />
       <!-- Imagen -->
       <div class="relative">
-        <img src="/assets/juan-sara.jpeg" alt="Pareja en la playa"  class="w-full object-cover fade-edges" />
+        <img src="/assets/juan-sara.jpeg" alt="Pareja en la playa"  class="w-full min-h-[416px] md: h-auto object-cover fade-edges" />
 
     
       </div>
