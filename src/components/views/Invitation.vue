@@ -14,7 +14,7 @@
  
     <Information />
     <Club />
-
+    <Map />
     <!-- Botón fijo para pausar/reanudar música -->
     <button
       @click="toggleMusic"
@@ -31,6 +31,7 @@ import Club from '../club/Club.vue';
 import Countdown from '../countdown/Countdown.vue';
 import Information from '../information/Information.vue';
 import { ref } from 'vue';
+import Map from '../map/Map.vue';
 
 const isMusicPlaying = ref(true);
 let audio1 = document.getElementById("bg-music-1");
