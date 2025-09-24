@@ -26,20 +26,30 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import Club from '../club/Club.vue';
 import Countdown from '../countdown/Countdown.vue';
 import Information from '../information/Information.vue';
-import { ref } from 'vue';
 import Map from '../map/Map.vue';
 
 const isMusicPlaying = ref(true);
-let audio1 = document.getElementById("bg-music-1");
-let audio2 = document.getElementById("bg-music-2");
+let audio1: HTMLAudioElement | null = null;
+let audio2: HTMLAudioElement | null = null;
 
-// Función para pausar/reanudar música
+onMounted(() => {
+  audio1 = document.getElementById("bg-music-1") as HTMLAudioElement;
+  audio2 = document.getElementById("bg-music-2") as HTMLAudioElement;
+
+  // Escuchar cambios de visibilidad
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("visibilitychange", handleVisibilityChange);
+});
+
 const toggleMusic = () => {
-  // Elegimos qué audio está activo
   const currentAudio = audio2 || audio1;
   if (currentAudio) {
     if (isMusicPlaying.value) {
@@ -49,6 +59,24 @@ const toggleMusic = () => {
       currentAudio.play().catch(err => console.warn("Error al reanudar:", err));
       isMusicPlaying.value = true;
     }
+  }
+};
+
+const handleVisibilityChange = () => {
+  if (document.hidden) {
+    // Minimizado o cambio de pestaña -> pausar
+    const currentAudio = audio2 || audio1;
+    if (currentAudio && isMusicPlaying.value) {
+      currentAudio.pause();
+      isMusicPlaying.value = false;
+    }
+  } else {
+    // Opcional: reanudar cuando vuelve
+    // const currentAudio = audio2 || audio1;
+    // if (currentAudio && !isMusicPlaying.value) {
+    //   currentAudio.play().catch(err => console.warn("Error al reanudar:", err));
+    //   isMusicPlaying.value = true;
+    // }
   }
 };
 </script>
