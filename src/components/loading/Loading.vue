@@ -176,4 +176,13 @@ const toggleMusic = () => {
   background-color: #8a008a;
   background-image: url(http://www.transparenttextures.com/patterns/concrete-wall-3.png);
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
+}
 </style>
