@@ -58,9 +58,8 @@
       <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
-      <!-- Ceremonia y Recepción con línea vertical -->
+      <!-- Ceremonia y Recepción -->
       <div class="grid grid-cols-2 gap-0 relative">
-        <!-- Línea vertical -->
         <div class="absolute top-0 bottom-0 left-1/2 border-l border-[#efc289]"></div>
 
         <div class="pr-6">
@@ -86,15 +85,11 @@
         <h3 class="font-serif font-semibold">Colores reservados</h3>
         <p class="mt-2 font-serif text-sm">Estos colores están destinados exclusivamente a los novios</p>
 
-        <!-- Colores reservados -->
         <div class="flex justify-center space-x-8 mt-4">
-          <!-- Negro - Juan -->
           <div class="flex flex-col items-center">
             <div class="w-12 h-12 rounded-full border-2 border-gray-400" style="background: black;"></div>
             <p class="mt-1 text-xs font-serif text-gray-700">Juan Guzmán — Negro</p>
           </div>
-
-          <!-- Blanco - Sara -->
           <div class="flex flex-col items-center">
             <div class="w-12 h-12 rounded-full border-2 border-gray-400" style="background: white;"></div>
             <p class="mt-1 text-xs font-serif text-gray-700">Sara Franco — Blanco</p>
@@ -112,63 +107,49 @@
         <p class="font-serif">Para las mujeres solo colores tierra</p>
       </div>
 
-      <!-- ============================
-           Sección añadida: imágenes con selectores de color
-      ============================ -->
+      <!-- Vestimenta interactiva -->
       <div class="mt-6 grid grid-cols-2 gap-3 items-start">
-        <!-- HOMBRES: imagen + selectores -->
+        <!-- HOMBRES -->
         <div class="flex flex-col items-center">
           <div class="relative w-full max-w-[320px]">
-            <img :src="selectedMan === 'tierra' ? '/assets/c-tierra.jpg' : '/assets/c-gris.jpg'" alt="Smoking hombre"
+            <img :src="manImages[selectedMan]" alt="Smoking hombre"
               class="w-full h-auto shadow-md object-cover" />
           </div>
-
           <p class="mt-3 font-serif text-sm text-gray-700">Hombres — elija color</p>
 
-          <div class="flex items-center space-x-4 mt-3">
-            <!-- Gris -->
-            <button :aria-pressed="selectedMan === 'gris'"
+          <div class="flex items-center space-x-4 mt-3 flex-wrap justify-center">
+            <button
+              v-for="(color, key) in manColors"
+              :key="key"
+              @click="selectedMan = key"
+              :aria-pressed="selectedMan === key"
               class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
-              :class="selectedMan === 'gris' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
-              title="Gris" style="background: gray"></button>
-
-            <!-- Tierra -->
-            <button  :aria-pressed="selectedMan === 'tierra'"
-              class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
-              :class="selectedMan === 'tierra' ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
-              title="Tierra" style="background: #a17c56"></button>
+              :class="selectedMan === key ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
+              :title="color.name"
+              :style="{ background: color.hex }">
+            </button>
           </div>
         </div>
 
         <!-- MUJERES -->
         <div class="flex flex-col items-center">
           <div class="relative w-full max-w-[320px]">
-            <img src="/assets/c-tierra-d.jpg" alt="Vestido mujer - colores sugeridos"
+            <img :src="womanImages[selectedWoman]" alt="Vestido mujer"
               class="w-full h-auto shadow-md object-cover" />
           </div>
-
-          <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — colores sugeridos</p>
+          <p class="mt-3 font-serif text-sm text-gray-700">Mujeres — elija color</p>
 
           <div class="flex flex-wrap justify-center gap-3 mt-3">
-            <!-- Matcha -->
-            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #809671" title="Matcha">
-            </div>
-
-            <!-- Pistache -->
-            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #B3B792" title="Pistache">
-            </div>
-
-            <!-- Chai -->
-            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #D2AB80" title="Chai">
-            </div>
-
-            <!-- Carob -->
-            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #725C3A" title="Carob">
-            </div>
-
-            <!-- Vanilla -->
-            <div class="w-10 h-10 rounded-full border-2 border-[#efc289]" style="background: #E5D2B8" title="Vanilla">
-            </div>
+            <button
+              v-for="(color, key) in womanColors"
+              :key="key"
+              @click="selectedWoman = key"
+              :aria-pressed="selectedWoman === key"
+              class="w-10 h-10 rounded-full border-2 flex items-center justify-center focus:outline-none transition"
+              :class="selectedWoman === key ? 'ring-2 ring-[#efc289] border-[#efc289]' : 'border-gray-300'"
+              :title="color.name"
+              :style="{ background: color.hex }">
+            </button>
           </div>
         </div>
       </div>
@@ -176,14 +157,13 @@
       <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
-      <!-- Nota con líneas -->
+      <!-- Confirmación -->
       <div class="flex items-center justify-between text-gray-700">
         <div class="flex-1 border-t border-[#efc289]"></div>
         <span class="px-3 font-serif">Confirma tu asistencia</span>
         <div class="flex-1 border-t border-[#efc289]"></div>
       </div>
 
-      <!-- Botón de confirmación -->
       <div class="flex justify-center mt-4">
         <button @click="confirmarAsistencia"
           class="px-6 w-full h-[50px] py-2 bg-[#793710] text-white font-small font-serif shadow-md hover:bg-[#793720] transition-colors">
@@ -194,7 +174,6 @@
       <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
-      <!-- Frase -->
       <p class="mt-2 font-serif text-gray-700">
         Nuestra felicidad solo está completa cuando la compartimos con las personas a las que amamos
       </p>
@@ -208,7 +187,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-// Función para capitalizar cada palabra
+// Capitalizar palabras
 function capitalizeWords(str) {
   return str
     .toLowerCase()
@@ -217,18 +196,46 @@ function capitalizeWords(str) {
     .join(" ");
 }
 
-// Reemplaza guiones por espacios en "companion"
 const rawCompanion = route.query.companion || "Invitado";
 const companion = capitalizeWords(rawCompanion.replace(/-/g, " "));
 const invitados = route.query.invitados || 1;
 
-const selectedMan = ref("tierra");
+// Hombre colores + imágenes
+const selectedMan = ref("terracota");
+const manColors = {
+  terracota: { name: "Terracota", hex: "#b35832" },
+  azul: { name: "Azul Marino", hex: "#1a2a44" },
+  oxido: { name: "Óxido", hex: "#a0522d" },
+  oliva: { name: "Verde Oliva", hex: "#556b2f" },
+  gris: { name: "Gris", hex: "#9e9e9e" },
+  matcha: { name: "Matcha", hex: "#6b8e23" }
+};
+const manImages = {
+  terracota: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_tbepox.jpg",
+  azul: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_1_gioydf.jpg",
+  oxido: "https://res.cloudinary.com/diccp2984/image/upload/v1758736373/Mask_group_2_w4altc.jpg",
+  oliva: "https://res.cloudinary.com/diccp2984/image/upload/v1758736373/Mask_group_3_vsrrnv.jpg",
+  gris: "https://res.cloudinary.com/diccp2984/image/upload/v1758736373/Mask_group_4_lci2so.jpg",
+  matcha: "https://res.cloudinary.com/diccp2984/image/upload/v1758736373/Mask_group_5_bsalqx.jpg"
+};
 
+// Mujer colores + imágenes
+const selectedWoman = ref("terracota");
+const womanColors = {
+  terracota: { name: "Terracota", hex: "#b35832" },
+  matcha: { name: "Matcha", hex: "#809671" },
+  pistacho: { name: "Pistacho", hex: "#B3B792" },
+  azul: { name: "Azul Suave", hex: "#87a6c0" }
+};
+const womanImages = {
+  terracota: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_10_crpzme.jpg",
+  matcha: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_7_qvjivh.jpg",
+  pistacho: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_8_yg01hj.jpg",
+  azul: "https://res.cloudinary.com/diccp2984/image/upload/v1758736373/Mask_group_9_qonegx.jpg"
+};
 
-
-// Teléfono destino
+// WhatsApp confirmación
 const telefono = "573125660618";
-
 function confirmarAsistencia() {
   const mensaje = `Confirmación de asistencia:\n\nInvitado principal: ${companion}\nNúmero de invitados: ${invitados}`;
   const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
