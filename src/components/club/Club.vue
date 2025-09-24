@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center p-4">
-    <h3 class="font-script text-4xl text-gray-800">Forest Campestre</h3>
+    <h3 class="font-script text-4xl text-gray-800">Forest Campestre - Envigado Antioquía</h3>
 
     <!-- Galería de imágenes -->
     <div class="grid grid-cols-3 gap-4 mt-3 w-full">

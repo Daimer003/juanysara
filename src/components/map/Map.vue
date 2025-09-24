@@ -34,7 +34,7 @@ onMounted(() => {
 
   L.marker([lat, lng], { icon: customIcon })
     .addTo(map)
-    .bindPopup("<b>Forest Campestre:</b><br>Aquí celebramos nuestra boda")
+    .bindPopup("<b>Forest Campestre - Envigado Antioquía:</b><br>Aquí celebramos nuestra boda")
     .openPopup()
 })
 </script>
