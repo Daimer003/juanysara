@@ -70,7 +70,7 @@ import { ref } from "vue"
 import Invitation from "../views/Invitation.vue"
 
 const showLoader = ref(true)
-const countdown = ref(11)
+const countdown = ref(6)
 const isCounting = ref(false)
 const isMusicPlaying = ref(true) // estado para el botón
 

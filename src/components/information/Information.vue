@@ -3,21 +3,16 @@
     <div class="w-full max-w-[800px] text-center p-4">
       <!-- Nombres + flor -->
       <div class="flex flex-col items-center">
-        <!-- Imagen de flores arriba -->
         <img src="/assets/flores-3.png" alt="Decoración flores" class="w-30 h-auto " />
 
-        <!-- Nombres en fila -->
         <div class="flex items-end space-x-6">
-          <!-- Nombre 1 -->
           <div class="text-center">
             <h1 class="font-script text-7xl md:text-8xl text-gray-800">Juan</h1>
             <p class="font-serif text-lg text-gray-700">Guzmán</p>
           </div>
 
-          <!-- "&" en el centro -->
           <p class="font-script text-3xl md:text-4xl text-gray-800 mb-3">&</p>
 
-          <!-- Nombre 2 -->
           <div class="text-center">
             <h1 class="font-script text-7xl md:text-8xl text-gray-800">Sara</h1>
             <p class="font-serif text-lg text-gray-700">Franco</p>
@@ -25,7 +20,6 @@
         </div>
       </div>
 
-      <!-- Texto principal -->
       <p class="mt-4 font-serif text-base text-gray-700 mt-10">
         Tenemos el honor de invitarlos a celebrar nuestra unión matrimonial
       </p>
@@ -55,7 +49,6 @@
         </div>
       </div>
 
-      <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
       <!-- Ceremonia y Recepción -->
@@ -77,7 +70,6 @@
         </div>
       </div>
 
-      <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
       <!-- Dress Code -->
@@ -97,7 +89,6 @@
         </div>
       </div>
 
-      <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
       <!-- Colores invitados -->
@@ -107,7 +98,7 @@
       </div>
 
       <!-- Vestimenta interactiva -->
-      <div class="mt-6 grid grid-cols-2 gap-3 items-start">
+      <div ref="vestimentaSection" class="mt-6 grid grid-cols-2 gap-3 items-start">
         <!-- HOMBRES -->
         <div class="flex flex-col items-center">
           <div class="relative w-full max-w-[320px]">
@@ -153,7 +144,9 @@
         </div>
       </div>
 
-      <!-- Línea divisoria -->
+      <!-- Audio de vestimenta -->
+      <audio ref="vestimentaAudio" :src="vestimentaSong" preload="auto"></audio>
+
       <div class="border-t border-[#efc289] my-8"></div>
 
       <!-- Confirmación -->
@@ -170,7 +163,6 @@
         </button>
       </div>
 
-      <!-- Línea divisoria -->
       <div class="border-t border-[#efc289] my-8"></div>
 
       <p class="mt-2 font-serif text-gray-700">
@@ -181,7 +173,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -228,7 +220,6 @@ const womanColors = {
   beige: { name: "Beige Vainilla", hex: "#E8D9B5" },
   rosa: { name: "Rosa Empolvado", hex: "#D8AFA8" }
 };
-
 const womanImages = {
   terracota: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_10_crpzme.jpg",
   matcha: "https://res.cloudinary.com/diccp2984/image/upload/v1758736374/Mask_group_7_qvjivh.jpg",
@@ -237,6 +228,42 @@ const womanImages = {
   beige: "https://res.cloudinary.com/diccp2984/image/upload/v1758745536/Mask_group_11_hmfu7e.jpg",
   rosa: "https://res.cloudinary.com/diccp2984/image/upload/v1758745536/Mask_group_12_msvtle.jpg"
 };
+
+// Música vestimenta
+const vestimentaSection = ref(null);
+const vestimentaAudio = ref(null);
+const vestimentaSong = "https://tuservidor.com/cancion.mp3"; // 🎶 URL canción
+
+// Guardar y controlar audios
+const allAudios = [];
+
+onMounted(() => {
+  allAudios.push(...document.querySelectorAll("audio"));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          allAudios.forEach((a) => {
+            if (a !== vestimentaAudio.value) a.pause();
+          });
+          vestimentaAudio.value.play().catch(() => {
+            console.log("El navegador bloqueó la reproducción automática");
+          });
+        } else {
+          vestimentaAudio.value.pause();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  if (vestimentaSection.value) observer.observe(vestimentaSection.value);
+
+  onBeforeUnmount(() => {
+    if (vestimentaSection.value) observer.unobserve(vestimentaSection.value);
+  });
+});
 
 // WhatsApp confirmación
 const telefono = "573125660618";
